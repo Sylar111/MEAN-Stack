@@ -66,9 +66,9 @@ export class DashboardComponent implements OnInit {
   toggle() {
     this.show = !this.show;
     if (this.show) {
-      this.buttonName = 'YOURS DASHBOARD';
+      this.buttonName = 'YOURS ADDRESS WALLET INFO';
     } else {
-      this.buttonName = 'Input your wallet';
+      this.buttonName = 'INPUT YOUR ADDRESS WALLET';
     }
   }
 }

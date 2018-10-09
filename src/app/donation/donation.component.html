@@ -1,15 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<br>
+<br>
+<br>
 <div style="text-align:center">
   <h1>
-    <br>
+    <strong>
     Welcome to {{title}}!
+    </strong>
   </h1>
 </div>
 <form>
   <div class="container">
     <div class="tab">
-      <b> Address:</b>{{transferFrom}} <span class="tab-right">
-      <b>Balance:</b>{{balance}}</span>
+      <b><strong> Address:</strong></b>{{transferFrom}} <span class="tab-right">
+      <b><strong>Balance:</strong></b>{{balance}}</span>
     </div>
 
     <hr>
@@ -28,4 +32,20 @@
 
 </form>
 
+<br>
+<br>
 
+
+<a *ngIf="balance==='0 ETH'; else templateName">
+<div class="options text-center" style="color:black" >
+  <a href="https://metamask.io/" target="_blank"><strong>Don't have an address wallet ?</strong></a></div></a>
+
+<ng-template #templateName style="color:red; margin-left: 500px">
+  <strong style="color:#4CAF50; margin-left: 500px">Thanks For Your Donation With Us</strong>
+</ng-template>
+
+
+
+<br>
+<br>
+<br>

@@ -16,7 +16,7 @@ export class ContactComponent {
 
   contactForm(form) {
     this._MessageService.sendMessage(form).subscribe(() => {
-      swal("Your comment has been sent to us", "Thanks for giving question", 'success');
+      swal("Your message has been sent to us", "Thanks for giving question  :)", 'success');
     });
   }
 

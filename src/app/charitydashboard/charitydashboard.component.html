@@ -12,17 +12,15 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand"  href="index .html" >DASHBOARD</a>
+  <a class="navbar-brand" style="color: white" >CHARITY DASHBOARD</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
-
-
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fa fa-fw fa-sign-out"></i>  Logout</a>
+        <a routerLink="/charity" style="color: white">
+          <i class="fa fa-fw fa-sign-out"></i>Go back</a>
       </li>
     </ul>
   </div>
@@ -30,45 +28,18 @@
 
 <br>
 <br>
-
+<br>
+<br>
 
 
 
   <div class="content-wrapper">
     <div class="container-fluid">
-
-      <!-- Area Charts -->
-
+      <div class="col-lg-12">
 
       <div class="row">
-        <div class="col-lg-12">
-          <!-- Bar Chart -->
 
-
-
-          <div class="card">
-            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Price table</h3>
-            <div class="card-body">
-              <div  class="table-editable">
-                <table class="table table-bordered  table-striped text-center">
-                  <tr>
-
-                    <th class="text-center">Coins</th>
-                    <th class="text-center">USD</th>
-                    <th class="text-center">AUD</th>
-
-                  </tr>
-                  <tr *ngFor="let crypto of objectKeys(cryptos)">
-
-                    <td class="text-center">{{ crypto }}</td>
-                    <td class="text-center">{{ cryptos[crypto].USD | currency: 'USD':'symbol-narrow'}}</td>
-                    <td class="text-center">{{cryptos[crypto].AUD | currency: 'AUD':'symbol-narrow'}}</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-
+        <div class="col-lg-6">
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-table"></i>&nbsp;Account Table</div>
@@ -92,10 +63,53 @@
             </div>
           </div>
 
-          Normal Trans
+          <br>
+          <br>
+
+          <div class ="topmax">
+            <p style="color: white">Amount of ether expected for charity :</p>
+            <input id="maxvalue" [(ngModel)]="maxvalue"/>
+            <button (click)="sendmaxvalue()" aria-hidden="true"> Set </button>
+          </div>
+
+        <div [hidden]="!chart">
+          <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+        </div>
+          <!-- Price Table -->
+          <div class="col-lg-4" style="background-color: #2e3951; text-align: center; margin-left: 100px">
+          <div class="card">
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Price table</h3>
+            <div class="card-body">
+              <div  class="table-editable">
+                <table class="table table-bordered  table-striped text-center">
+                  <tr>
+
+                    <th class="text-center">Coins</th>
+                    <th class="text-center">USD</th>
+                    <th class="text-center">AUD</th>
+
+                  </tr>
+                  <tr *ngFor="let crypto of objectKeys(cryptos)">
+
+                    <td class="text-center">{{ crypto }}</td>
+                    <td class="text-center">{{ cryptos[crypto].USD | currency: 'USD':'symbol-narrow'}}</td>
+                    <td class="text-center">{{cryptos[crypto].AUD | currency: 'AUD':'symbol-narrow'}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<br>
+        <br>
 
           <div class="visible" >
-
+            <h3><strong> Table Transaction </strong></h3>
             <table class="table table-responsive table-hover">
               <thead class="mdb-color darken-3">
               <tr class="text-white">
@@ -126,7 +140,7 @@
 
           Internal Trans
 
-          <div class="visible" >
+          <!--<div class="visible" >
 
             <table class="table table-responsive table-hover">
               <thead class="mdb-color darken-3">
@@ -151,14 +165,14 @@
               </tbody>
             </table>
 
-          </div>
+          </div> -->
 
 
 
         </div>
 
 
-      </div>
+
     </div>
 
   </div>
@@ -204,7 +218,7 @@
 <footer class="sticky-footer">
   <div class="container">
     <div class="text-center">
-      <small>Copyright © Your Website 2018</small>
+      <small>Copyright © Reliance Website 2018</small>
     </div>
   </div>
 </footer>

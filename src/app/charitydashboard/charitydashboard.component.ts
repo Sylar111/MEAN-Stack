@@ -23,6 +23,7 @@ export class CharitydashboardComponent implements OnInit {
   public show: boolean = false;
   public buttonName: any;
   public etherwallet: string = '0xb03ed6bb2d055a3290f974ea14268720e7d12bd1';
+  public maxvalue: number;
 
 
   constructor(private data: DataService,
@@ -37,13 +38,6 @@ export class CharitydashboardComponent implements OnInit {
         this.cryptos = res;
         console.log(res);
       });
-    this.appService.getBalances(this.etherwallet)
-      .subscribe(temp => {
-        this.resultinfo = temp.result;
-        console.log(temp.result);
-        console.log(this.etherwallet);
-      });
-
     this.transactionService.getTrans(this.etherwallet)
       .subscribe(temp => {
         this.traninfo = temp.result;
@@ -55,6 +49,44 @@ export class CharitydashboardComponent implements OnInit {
         this.intrans = temp.result;
         console.log(temp.result);
       });
+  }
+  sendmaxvalue(): void {
+    this.appService.getBalances(this.etherwallet)
+      .subscribe(temp => {
+        const max1 = temp.result[0].balance * 0.000000000000000001;
+        this.resultinfo = temp.result;
+        console.log(temp.result);
+        console.log(this.etherwallet);
+        this.chart = new Chart('canvas', {
+            type: 'line',
+            data: {
+              labels: ['Min', max1, 'Max'],
+              datasets: [
+                { label: 'charity wallet',
+                  data: [0, max1, this.maxvalue],
+                  borderColor: '#3cba9f'
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [{
+                  display: true,
+                  ticks: {
+                    min: 0,
+                    max : this.data[3],
+                  }
+                }]
+              }
+            }
+          }
+        );
+
+
+      });
+
+
 
 
   }

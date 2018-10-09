@@ -1,8 +1,12 @@
+<br>
+<br>
+<br>
+<p class="h2 text-center mb-4" style="background-color:pink; margin-left: 250px; margin-right: 250px">Your Profile</p>
 <div *ngIf="user">
-  <h2 class="page-header">{{user.name}}</h2>
+  <h2 class="page-header" style="margin-left: 50px">{{user.name}}</h2>
   <ul class="list-group">
     <li class="list-group-item">Username : {{user.username}}</li>
     <li class="list-group-item">Email : {{user.email}}</li>
-  <!--  <li class="list-group-item">Permission : {{user.permission}}</li>  -->
+   <li class="list-group-item">Permission : {{user.permission}}</li>
   </ul>
 </div>

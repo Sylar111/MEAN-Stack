@@ -18,6 +18,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { PermissionGuard } from './guards/permission.guard';
 import { ContactComponent} from './contact/contact.component';
 import {CharitydashboardComponent} from './charitydashboard/charitydashboard.component';
+import {UserguideComponent} from './userguide/userguide.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: 'charitydashboard',
     component: CharitydashboardComponent
+  },
+  {
+    path: 'userguide',
+    component: UserguideComponent
   }
 ];
 @NgModule({

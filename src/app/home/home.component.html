@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <header>
-
   <!-- Main -->
   <div class="view">
     <div class="full-bg-img">
@@ -10,7 +9,6 @@
           <div class="white-text text-center wow fadeInUp">
             <h1>WE MAKE CHARITY</h1>
             <h2>CLEAR AND SIMPLE</h2>
-
             <h4>Now you can donate cryptocurrency </h4>
           </div>
         </div>
@@ -25,12 +23,60 @@
 
   <div class="container ">
     <div class="row">
-      <div class="col-md-12 ">
-        <p align="justify"> Donate Here
-          <button type="button" class="btn btn-elegant waves-light" mdbWavesEffect routerLink="donation">Donation</button>
+      <div class="col-sm-8 ">
 
+        <!--Carousel Wrapper-->
+        <mdb-carousel [isControls]="true" [animation]="'slide'">
+          <!--First slide-->
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/images/1.jpg" alt="First slide">
+            <div class="carousel-caption" style="color:black">
+              <p><strong>We are helping</strong></p>
+            </div>
+          </mdb-carousel-item>
+          <!--/First slide-->
+          <!--Second slide-->
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/images/2.jpg" alt="Second slide">
+            <div class="carousel-caption" style="color:black">
+              <p><strong>Save the children</strong></p>
+            </div>
+          </mdb-carousel-item>
+          <!--/Second slide-->
+          <!--Third slide-->
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/images/3.jpeg" alt="Third slide">
+            <div class="carousel-caption" style="color:black">
+              <p><strong>Save the world</strong></p>
+            </div>
+          </mdb-carousel-item>
+          <!--/Third slide-->
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/images/5.png" alt="Third slide">
+            <div class="carousel-caption" style="color:black">
+              <p><strong>With CryptoCurrency</strong></p>
+            </div>
+          </mdb-carousel-item>
+        </mdb-carousel>
+        <!--/.Carousel Wrapper-->
+
+
+
+      </div>
+
+      <div class="col-sm-4">
+        <div class="row pt-5">
+        <p align="center">We make a Highest Secured Transfer System for your Cryptocurrency
+          <button type="button" class="btn btn-elegant waves-light" mdbWavesEffect routerLink="donation">Donate Now</button>
+        </p>
+        </div>
+        <div class="row pt-3">
+        <p align="center"> The Children's Charity for children in need
+          <button type="button" class="btn btn-elegant waves-light" mdbWavesEffect routerLink="charity">Our Charity List</button>
         </p>
       </div>
+      </div>
+
     </div>
   </div>
 
@@ -41,21 +87,26 @@
 <section>
 
   <!--Section heading-->
-  <h1 class="py-5 font-weight-bold text-center">Why is it so great?</h1>
+  <h2 class="py-5 font-weight-bold text-center">Why is it so great?</h2>
   <!--Section description-->
-  <p class="px-5 mb-5 pb-3 lead grey-text text-center">Here are the 3 good reasons why it is important.</p>
+  <h4 class="px-5 mb-5 pb-3 lead grey-text text-center">Here are the 3 good reasons why it is important</h4>
 
   <!--Grid row-->
   <div class="row pt-2">
 
     <!--Grid column-->
-    <div class=" col-lg-4 text-center text-lg-left">
-      <img src="assets/images/main1.jpg" alt="" class="img-fluid z-depth-2 rounded img-thumbnail">
+    <div class=" col-lg-5 text-left">
+      <img src="assets/images/4.jpg" alt="" class="img-fluid z-depth-2 rounded img-thumbnail" style="margin:10px">
+      <br>
+      <br>
+      <br>
+      <br>
+      <img src="assets/images/7.jpg" alt="" class="img-fluid z-depth-2 rounded img-thumbnail" style="margin:10px">
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
-    <div class="col-lg-7">
+    <div class="col-lg-6">
 
       <!--Grid row-->
       <div class="row pb-3">
@@ -63,7 +114,7 @@
           <i class="fa fa-mail-forward fa-lg indigo-text"></i>
         </div>
         <div class="col-10">
-          <h5 class="font-weight-bold text-left mb-3 dark-grey-text">Help peoples</h5>
+          <h5 class="font-weight-bold text-left mb-3 dark-grey-text">Help people</h5>
           <p class="grey-text text-left">There are millions of people in the world who are worse of than we are at any one time. Many of these folk have problems that are not their fault or are beyond their ability to prevent or change. Humans are a social animal and the best way for mankind to advance is by helping those who are unable to help themselves. We have a responsibility to care for other people, to help those less fortunate than ourselves. When we have some spare cash, time or goods, it is an opportunity to help out.</p>
         </div>
       </div>
@@ -110,18 +161,15 @@
 <section class="team-section pb-5">
 
   <!--Section heading-->
-  <h1 class="h1 text-center py-5">Our amazing team</h1>
+  <h3 class="h3 text-center py-5">Our amazing team</h3>
   <!--Section description-->
-  <h3 class="grey-text pb-15 text-center ">Contact us  </h3>
-  <p class="grey-text pb-15 text-center">by email: teamreliance@gmail.com </p>
-  <p class="grey-text pb-5 text-center">by phone: 0412979290 </p>
-  <!-- Grid row -->
+
   <div class="row text-center">
 
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card card-body">
-        <div class="avatar mx-auto my-3">
+        <div class="avatar mx-auto my-1">
           <img src="assets/images/Duy1.jpg" class="rounded-circle img-fluid img-thumbnail" alt="First sample avatar image">
         </div>
         <h5 class="font-weight-bold">
@@ -137,7 +185,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card card-body">
-        <div class="avatar mx-auto my-3">
+        <div class="avatar mx-auto my-1">
           <img src="assets/images/Vy.jpeg" class="rounded-circle img-fluid img-thumbnail" alt="First sample avatar image">
         </div>
         <h5 class="font-weight-bold">
@@ -153,7 +201,7 @@
     <!-- Grid column -->
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="card card-body">
-        <div class="avatar mx-auto my-3">
+        <div class="avatar mx-auto my-1">
           <img src="assets/images/Dung.jpg" class="rounded-circle img-fluid img-thumbnail" alt="First sample avatar image">
         </div>
         <h5 class="font-weight-bold">
@@ -168,14 +216,14 @@
     <!-- Grid column -->
       <div class="col-lg-3 col-md-6 mb-4">
       <div class="card card-body">
-        <div class="avatar mx-auto my-3">
+        <div class="avatar mx-auto my-1">
           <img src="assets/images/Lan.jpg" class="rounded-circle img-fluid img-thumbnail" alt="First sample avatar image">
         </div>
         <h5 class="font-weight-bold">
           <strong>Lan</strong>
         </h5>
 
-        <p class="grey-text">Member 4</p>
+        <p class="grey-text">Member4</p>
 
 
       </div>
@@ -188,6 +236,12 @@
 </section>
 <!--Section: Team v.1-->
 
-
+<footer class="sticky-footer">
+  <div class="container">
+    <div class="text-center">
+      <small>Copyright © Reliance Website 2018</small>
+    </div>
+  </div>
+</footer>
 
 

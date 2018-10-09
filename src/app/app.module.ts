@@ -38,6 +38,7 @@ import { InternaltransService} from './services/internaltrans.service';
 import { CharitydashboardComponent } from './charitydashboard/charitydashboard.component';
 import { NgLoadingSpinnerModule, NgLoadingSpinnerInterceptor } from 'ng-loading-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserguideComponent } from './userguide/userguide.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     NewCharityComponent,
     PublicProfileComponent,
     ContactComponent,
-    CharitydashboardComponent
+    CharitydashboardComponent,
+    UserguideComponent
   ],
   imports: [
     BrowserModule,
