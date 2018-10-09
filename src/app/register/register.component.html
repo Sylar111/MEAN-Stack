@@ -1,0 +1,34 @@
+<!-- Register form -->
+<form (submit)="onRegisterSubmit()">
+  <p class="h2 text-center mb-4">Sign up</p>
+  <div class="md-form col-md-6 container-fluid ">
+    <i class="fa fa-user prefix grey-text"></i>
+    <input type="text" [(ngModel)]="name" name="name"  class="form-control" mdbInputDirective>
+    <label>Name</label>
+  </div>
+  <div class="md-form col-md-6 container-fluid ">
+    <i class="fa fa-user prefix grey-text"></i>
+    <input type="text" [(ngModel)]="username" name="username" class="form-control" mdbInputDirective>
+    <label>Username</label>
+  </div>
+  <div class="md-form col-md-6 container">
+    <i class="fa fa-envelope-square prefix grey-text"></i>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" mdbInputDirective>
+    <label>Your email</label>
+  </div>
+  <div class="md-form col-md-6 container-fluid ">
+    <i class="fa fa-lock prefix grey-text"></i>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control" mdbInputDirective>
+    <label>Your password</label>
+  </div>
+  <div class=" col-md-6 container-fluid">
+    <div class="options text-center text-md-right mt-1">
+      <p>Already a member? Please <a routerLink="/login" >Log in</a></p>
+    </div>
+  </div>
+  <div class="text-center">
+    <input type="submit" class="btn btn-deep-orange waves-light" value="Submit" mdbWavesEffect>
+  </div>
+</form>
+<!-- Register form -->
+

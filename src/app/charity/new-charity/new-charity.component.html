@@ -1,0 +1,71 @@
+<h1 class="page-header text-center">Charity List</h1>
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message" *ngIf="message && newPost">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<!-- New Post Button -->
+
+<a  *ngIf="permission === 'charity'">
+  <button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newCharityForm()">New Post</button> </a>
+<!--<button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newCharityForm()">New Post</button> -->
+
+<br />
+<br />
+
+
+<!-- New Charity Form -->
+<form [formGroup]="form" name="charityForm" (submit)="onCharitySubmit()" *ngIf="newPost">
+  <!-- Title Input -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <div [ngClass]="{'has-success': form.controls.title.valid, 'has-error': form.controls.title.dirty && form.controls.title.errors}">
+      <input type="text" name="title" class="form-control" id="title" placeholder="*Charity Title" autocomplete="off" formControlName="title" />
+      <ul class="help-block">
+        <li *ngIf="form.controls.title.dirty && form.controls.title.errors?.required">This field is required.</li>
+        <li *ngIf="(form.controls.title.dirty && form.controls.title.errors?.minlength) || (form.controls.title.dirty && form.controls.title.errors?.maxlength)">Max length: 50, Min length: 5</li>
+        <li *ngIf="form.controls.title.dirty && form.controls.title.errors?.alphaNumericValidation">Must be a letter or number</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Body Input -->
+  <div class="form-group">
+    <label for="body">Body</label>
+    <div [ngClass]="{'has-success': form.controls.body.valid, 'has-error': form.controls.body.dirty && form.controls.body.errors}">
+      <textarea name="body" rows="8" cols="80" id="body" placeholder="*Body" class="form-control" formControlName="body"></textarea>
+      <ul class="help-block">
+        <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.required">This field is required.</li>
+        <li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">Max length: 500, Min length: 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="bitCoin">bitCoin Wallet</label>
+    <div >
+      <input type="text" name="bitCoin" class="form-control" id="bitCoin" placeholder="*bitCoin Wallet" autocomplete="off" formControlName="bitCoin" />
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ether">ether Wallet</label>
+    <div >
+      <input type="text" name="ether" class="form-control" id="ether" placeholder="*ether Wallet" autocomplete="off" formControlName="ether" />
+
+    </div>
+  </div>
+
+
+
+  <!-- Go Back Button -->
+  <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+  <!-- Submit Button -->
+  <button [disabled]="processing || !form.valid" type="submit" name="button" class="btn btn-success">Submit</button>
+
+</form>
+<!-- New Charity Form -->

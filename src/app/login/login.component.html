@@ -1,0 +1,33 @@
+<!-- Login form -->
+
+<form (submit)="onloginSubmit()">
+
+  <p class="h1 text-center mb-4 jumbotron col-md-5 container-fluid btn-default waves-light">
+    <i class="fa fa-lock" aria-hidden="true"></i> Login:</p>
+
+  <div class=" col-md-6 container-fluid  modal-content ">
+    <div class="md-form col-md-12 container-fluid ">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username"  mdbInputDirective>
+      <label>Your username</label>
+    </div>
+
+    <div class="md-form col-md-12 container-fluid">
+      <i class="fa fa-lock prefix grey-text"></i>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" mdbInputDirective>
+      <label>Your password</label>
+    </div>
+
+    <div class="text-center">
+      <input type="submit" class="btn btn-default waves-light" mdbWavesEffect value="Login">
+    </div>
+    <!--Footer-->
+    <div class="">
+      <div class="options text-center text-md-right mt-1">
+        <p>Not a member? <a routerLink="/register" >Sign Up</a></p>
+        <p>Forgot <a href="#">Password?</a></p>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- Login form -->

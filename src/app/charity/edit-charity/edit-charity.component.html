@@ -1,0 +1,46 @@
+<h1 class="page-header">Edit Charity</h1>
+
+<!-- Custom Success/Erro Message -->
+<div class="row show-hide-message" *ngIf="message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<!-- Edit charity Form -->
+<form (submit)="updateCharitySubmit()" *ngIf="!loading">
+  <!-- Title Field -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <!-- Title Input -->
+    <input [disabled]="processing" type="text" id="title" name="title" placeholder="*Charity Title" class="form-control" [(ngModel)]="charity.title" />
+  </div>
+
+  <!-- Body Field -->
+  <div class="form-group">
+    <label for="body">Body</label>
+    <!-- Body Input -->
+    <textarea [disabled]="processing" id="body" name="body" rows="8" cols="80" [(ngModel)]="charity.body" class="form-control" placeholder="* Body"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="bitCoin">BitCoin Wallet</label>
+    <!-- bitCoin Wallet Input -->
+    <input [disabled]="processing" type="text" id="bitCoin" name="bitCoin" placeholder="*Bitcoin Wallet" class="form-control" [(ngModel)]="charity.bitCoin" />
+  </div>
+
+  <div class="form-group">
+    <label for="ether">Ether Wallet</label>
+    <!-- Ether Wallet Input -->
+    <input [disabled]="processing" type="text" id="ether" name="Ether" placeholder="*Ethereum Wallet" class="form-control" [(ngModel)]="charity.ether" />
+  </div>
+
+
+  <!-- Delete Button -->
+  <!--  <a [routerLink]="['/delete-charity/', charity._id]" *ngIf="username === charity.createdBy"><button  [disabled]="processing"  type="button" name="button" class="btn btn-danger">Delete</button></a>
+   <!-- Go Back Button -->
+  <button [disabled]="processing" type="button" name="button" class="btn btn-success" (click)="goBack()">Go Back</button>
+  <!-- Save Changes Button -->
+  <button [disabled]="processing" *ngIf="username === charity.createdBy" type="submit" name="save" class="btn btn-info">Save Changes</button>
+
+</form>

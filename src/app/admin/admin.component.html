@@ -1,0 +1,25 @@
+<form (submit)="onlogin()">
+
+  <br /><br /><br /><br /><br />
+
+
+  <div class=" col-md-4 container-fluid  modal-content ">
+    <div class="md-form col-md-12 container-fluid ">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username"  mdbInputDirective>
+      <label>Your username</label>
+    </div>
+
+    <div class="md-form col-md-12 container-fluid">
+      <i class="fa fa-lock prefix grey-text"></i>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" mdbInputDirective>
+      <label>Your password</label>
+    </div>
+
+    <div class="text-center">
+      <input type="submit" class="btn btn-default waves-light" mdbWavesEffect value="Admin Login">
+    </div>
+
+  </div>
+</form>
+<!-- Login form -->

@@ -1,0 +1,33 @@
+.nav-item
+{
+  margin-left: auto
+}
+body {
+
+
+  background-color: white;
+
+}
+.fa-newspaper-o
+{
+  color: white;
+}
+.visible {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  text-align: left;
+  background-color: white !important;
+}
+
+.mt-4
+{
+  color:white;
+}
+
+
+
+/* Style the links inside the navigation bar */
+

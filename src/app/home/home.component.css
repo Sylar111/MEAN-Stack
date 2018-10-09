@@ -1,0 +1,12 @@
+.view {
+  background: url("../../assets/images/home.jpg") no-repeat center center;
+  background-size: cover;
+  height: 70vh;
+}
+
+h1{
+  font-size: 75px;
+}
+h2{
+  font-size: 50px;
+}
