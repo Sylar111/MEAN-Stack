@@ -1,0 +1,236 @@
+<head xmlns="http://www.w3.org/1999/html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"
+          integrity="sha256-J2sc79NPV/osLcIpzL3K8uJyAD7T5gaEFKlLDM18oxY=" crossorigin="anonymous"></script>
+  <title>Dashboard</title>
+</head>
+
+<br>
+<br>
+<br>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <a class="navbar-brand" style="color:white" >USER DASHBOARD</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fa fa-fw fa-sign-out"></i>Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+
+<input id="etherwallet" [(ngModel)]="etherwallet"
+       class="form-control" type="text" placeholder="Search" aria-label="Search">
+
+<button class="inner" [(ngModel)]="etherwallet" (click)="toggle()" (click)="sendValues()" id="bt">
+  {{buttonName}} </button>
+<div *ngIf="show">
+
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <!-- Area Charts -->
+      <br/>
+      <br/>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Bar Chart -->
+
+
+
+          <!--<div class="card">
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Price table</h3>
+            <div class="card-body">
+              <div  class="table-editable">
+                <table class="table table-bordered  table-striped text-center">
+                  <tr>
+
+                    <th class="text-center">Coins</th>
+                    <th class="text-center">USD</th>
+                    <th class="text-center">AUD</th>
+
+                  </tr>
+                  <tr *ngFor="let crypto of objectKeys(cryptos)">
+
+                    <td class="text-center">{{ crypto }}</td>
+                    <td class="text-center">{{ cryptos[crypto].USD | currency: 'USD':'symbol-narrow'}}</td>
+                    <td class="text-center">{{cryptos[crypto].AUD | currency: 'AUD':'symbol-narrow'}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>-->
+
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i>&nbsp;Account Table</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                  <thead>
+                  <tr>
+                    <th>Address</th>
+                    <th>Balance</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><p style="color:red">{{resultinfo[0].account}}</p></td>
+                    <td><p style="color:red">{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;Ether</p></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <br/>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+<button class="inner1" (click)="toggle1()" (click)="sendValues()"  id="bt1">
+  {{buttonName1}} </button>
+<div *ngIf="show1">
+  <br/>
+  <br/>
+
+
+  <div class="visible" >
+    <h3><strong> Table Transaction </strong></h3>
+    <table class="table table-responsive table-hover">
+      <thead class="mdb-color darken-3">
+      <tr class="text-white">
+        <td align="center">BlockNumber</td>
+        <td align="center">Date</td>
+        <td align="center">From</td>
+        <td align="center">To</td>
+        <td align="center">Value</td>
+        <td align="center">Fee</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let posts of traninfo">
+        <td align="center">{{posts.blockNumber}}</td>
+        <td align="center">{{posts.timeStamp*1000 | date:'mediumDate'}} </td>
+        <td align="center">{{posts.from}}</td>
+        <td align="center">{{posts.to}}</td>
+        <td align="center">{{posts.value*0.000000000000000001}}</td>
+        <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <br>
+  <br>
+
+  <!-- Internal Trans
+
+  <div class="visible" >
+
+    <table class="table table-responsive table-hover">
+      <thead class="mdb-color darken-3">
+      <tr class="text-white">
+        <td align="center">BlockNumber</td>
+        <td align="center">Date</td>
+        <td align="center">From</td>
+        <td align="center">To</td>
+        <td align="center">Value</td>
+        <td align="center">Fee</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let posts of intrans">
+        <td align="center">{{posts.blockNumber}}</td>
+        <td align="center">{{posts.timeStamp*1000 | date:'mediumDate'}} </td>
+        <td align="center">{{posts.from}}</td>
+        <td align="center">{{posts.to}}</td>
+        <td align="center">{{posts.value*0.000000000000000001}}</td>
+        <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div> -->
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="js/sb-admin-datatables.min.js"></script>
+<script src="js/sb-admin-charts.min.js"></script>
+
+
+
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
+
+
+
+
+
+
+<!-- Editable table -->
+
+<!-- Editable table -->
+
+
+<footer class="sticky-footer">
+  <div class="container">
+    <div class="text-center">
+      <small>Copyright © Reliance Website 2018</small>
+    </div>
+  </div>
+</footer>

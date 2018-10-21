@@ -19,6 +19,7 @@ import { PermissionGuard } from './guards/permission.guard';
 import { ContactComponent} from './contact/contact.component';
 import {CharitydashboardComponent} from './charitydashboard/charitydashboard.component';
 import {UserguideComponent} from './userguide/userguide.component';
+import {SearchingComponent} from './searching/searching.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
   {
     path: 'admin/dashboard',
     component: AdminDashboardComponent,
-    canActivate: [AdminGuard]
+    //canActivate: [AdminGuard]
   },
   {
     path: 'charity',
@@ -82,6 +83,10 @@ const routes: Routes = [
   {
     path: 'userguide',
     component: UserguideComponent
+  },
+  {
+    path: 'searching',
+    component: SearchingComponent
   }
 ];
 @NgModule({

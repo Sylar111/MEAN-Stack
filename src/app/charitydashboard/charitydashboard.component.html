@@ -9,18 +9,16 @@
   <title>Dashboard</title>
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer" id="page-top">
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" style="color: white" >CHARITY DASHBOARD</a>
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg  fixed-top" id="mainNav">
+  <a class="navbar-brand" style="color:black" ><strong><h2>CHARITY DASHBOARD</h2></strong></a>
+
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a routerLink="/charity" style="color: white">
-          <i class="fa fa-fw fa-sign-out"></i>Go back</a>
+        <a routerLink="/charity" style="color: black">
+          <i class="fa fa-fw fa-sign-out"></i><strong>Go back</strong></a>
       </li>
     </ul>
   </div>
@@ -29,17 +27,24 @@
 <br>
 <br>
 <br>
-<br>
 
 
-
+<div *ngIf="user">
+  <br/>
+  <br/>
+  <br/>
+  <strong  style="color:black; margin-left: 100px;"><i class="fa fa-archive"></i> Your Address: </strong>
+  <div class= "row"><h4 class="address" style="margin-left: 200px; color: black" > {{user.name}}&ensp; </h4><i class="fa fa-copy"></i></div>
+  <br>
+  <br>
+  <br>
   <div class="content-wrapper">
     <div class="container-fluid">
       <div class="col-lg-12">
 
       <div class="row">
 
-        <div class="col-lg-6">
+        <div class="col-lg-7">
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-table"></i>&nbsp;Account Table</div>
@@ -49,13 +54,39 @@
                   <thead>
                   <tr>
                     <th>Address</th>
-                    <th>Balance</th>
+                    <th>Number of Transaction</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td><p style="color:red">{{resultinfo[0].account}}</p></td>
+                    <td style="color:red" *ngFor="let posts of (traninfo | slice: -1); let i = index"><strong>
+                      {{traninfo.length}}&ensp; txns
+                    </strong></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i>&nbsp;Fund Table</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                  <thead>
+                  <tr>
+                    <th>Amount of Ether</th>
+                    <th>Amount of AUD</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
                     <td><p style="color:red">{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;Ether</p></td>
+                    <td><p style="color:red">{{resultinfo[0].balance*0.000000000000000001*cryptos.ETH.AUD | currency: 'AUD':'symbol-narrow'}}&nbsp;&nbsp;AUD</p></td>
                   </tr>
                   </tbody>
                 </table>
@@ -63,13 +94,13 @@
             </div>
           </div>
 
-          <br>
+
           <br>
 
           <div class ="topmax">
-            <p style="color: white">Amount of ether expected for charity :</p>
+            <p style="color: rgb(255, 107, 74)">Amount of expected Ether for charity :</p>
             <input id="maxvalue" [(ngModel)]="maxvalue"/>
-            <button (click)="sendmaxvalue()" aria-hidden="true"> Set </button>
+            <button (click)="sendmaxvalue()"  aria-hidden="true"> Set Max</button>
           </div>
 
         <div [hidden]="!chart">
@@ -77,7 +108,7 @@
         </div>
         </div>
           <!-- Price Table -->
-          <div class="col-lg-4" style="background-color: #2e3951; text-align: center; margin-left: 100px">
+          <div class="col-lg-4" style="background-color: ghostwhite; text-align: center; margin-left: 100px">
           <div class="card">
             <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Price table</h3>
             <div class="card-body">
@@ -89,13 +120,14 @@
                     <th class="text-center">USD</th>
                     <th class="text-center">AUD</th>
 
+
                   </tr>
                   <tr *ngFor="let crypto of objectKeys(cryptos)">
 
                     <td class="text-center">{{ crypto }}</td>
                     <td class="text-center">{{ cryptos[crypto].USD | currency: 'USD':'symbol-narrow'}}</td>
                     <td class="text-center">{{cryptos[crypto].AUD | currency: 'AUD':'symbol-narrow'}}</td>
-                  </tr>
+
                 </table>
               </div>
             </div>
@@ -105,13 +137,13 @@
 
 
 
-<br>
+        <br>
         <br>
 
           <div class="visible" >
             <h3><strong> Table Transaction </strong></h3>
             <table class="table table-responsive table-hover">
-              <thead class="mdb-color darken-3">
+              <thead class="mdb-color darken-5">
               <tr class="text-white">
                 <td align="center">BlockNumber</td>
                 <td align="center">Date</td>
@@ -123,12 +155,12 @@
               </thead>
               <tbody>
               <tr *ngFor="let posts of traninfo">
-                <td align="center">{{posts.blockNumber}}</td>
+                <td align="center" style="color:cornflowerblue">{{posts.blockNumber}}</td>
                 <td align="center">{{posts.timeStamp*1000 | date:'mediumDate'}} </td>
                 <td align="center">{{posts.from}}</td>
-                <td align="center">{{posts.to}}</td>
+                <td align="center" style="color:cornflowerblue">{{posts.to}}</td>
                 <td align="center">{{posts.value*0.000000000000000001}}</td>
-                <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001}}</td>
+                <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001 | number : '1.2-9'}}</td>
               </tr>
               </tbody>
             </table>
@@ -138,7 +170,7 @@
           <br>
           <br>
 
-          Internal Trans
+
 
           <!--<div class="visible" >
 
@@ -176,7 +208,7 @@
     </div>
 
   </div>
-
+</div>
 
 
 

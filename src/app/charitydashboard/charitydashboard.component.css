@@ -13,8 +13,12 @@
   background-color: white !important;
 }
 
-
-
+#page-top {
+  background-color: ghostwhite;
+}
+#mainNav {
+  background-color: rgb(255, 107, 74);
+}
 
 /* Style the links inside the navigation bar */
 

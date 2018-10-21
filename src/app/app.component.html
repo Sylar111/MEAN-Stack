@@ -1,50 +1,146 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <header>
-  <mdb-navbar SideClass="navbar fixed-top  navbar-expand-lg navbar-dark unique-color-dark scrolling-navbar ie-nav" [containerInside]="false">
-    <logo>
-      <img src="https://image.ibb.co/fcQKHS/Untitled.png" class="rounded-circle img-fluid" alt="avatar image" width="40">
-      <a class="logo navbar-brand" href="#" ><strong> RELIANCE </strong></a>
-    </logo>
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color-dark scrolling-navbar ie-nav " [containerInside]="false">
     <links>
       <ul class="navbar-nav mr-auto navbar-centre">
+        <li class="nav-item" >
+      <img src="https://image.ibb.co/fcQKHS/Untitled.png" class="rounded-circle img-fluid" alt="avatar image" width="40">
+      <a class="logo navbar-brand" href="#" ><strong> RELIANCE </strong></a>
+        </li>
         <li class="nav-item  waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink=""> Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="donation"> Donation </a>
+          <a class="nav-link" routerLink="donation">Donation</a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="charity"> Charity List </a>
+          <a class="nav-link" routerLink="charity">CharityList</a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a  class="nav-link" routerLink="dashboard"> Dashboard </a>
+          <a  class="nav-link" routerLink="dashboard">Dashboard</a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink="register"> Register </a>
+          <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink="register">Register</a>
         </li>
         <li  class="nav-item waves-light " mdbWavesEffect >
-          <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink="login"> Log in </a>
+          <a *ngIf="!authService.loggedIn()" class="nav-link" routerLink="login">LogIn</a>
         </li>
         <li class="nav-item waves-light " mdbWavesEffect >
-          <a *ngIf="authService.loggedIn()" class="nav-link" routerLink="profile"> Profile </a>
+          <a *ngIf="authService.loggedIn()" class="nav-link" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a  class="nav-link" routerLink="contact"> Contact </a>
+          <a  class="nav-link" routerLink="contact">Contact</a>
         </li>
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a  class="nav-link" routerLink="userguide"> UserGuide </a>
+          <a  class="nav-link" routerLink="userguide">UserGuide</a>
         </li>
         <li class="nav-item waves-light " mdbWavesEffect >
-          <a *ngIf="authService.loggedIn()" class="nav-link" (click) = "onLogoutClick()" href="#"> Log out </a>
+          <a *ngIf="authService.loggedIn()" class="nav-link" (click) = "onLogoutClick()" href="#">LogOut</a>
+        </li>
+
+
+        <li class="form-inline">
+          <div class="md-form my-0">
+            <input id="etherwallet" [(ngModel)]="etherwallet" style="color: white"
+                   class="form-control" type="text" placeholder="Search by Address" aria-label="Search">
+          </div>
+          <button (click)="toggle()" (click)="sendValues()"
+                  class="btn btn-outline-white btn-md my-0 ml-sm-1" type="submit" >{{buttonName}}</button>
+
+
+
+
+
+
+        <div *ngIf="show">
+
+
+          <div class="content-wrapper">
+            <div class="container-fluid">
+
+              <!-- Area Charts -->
+
+              <div class="row">
+
+                <div class="col-lg-11">
+                  <!-- Bar Chart -->
+
+
+
+                  <!--<div class="card">
+                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Price table</h3>
+                    <div class="card-body">
+                      <div  class="table-editable">
+                        <table class="table table-bordered  table-striped text-center">
+                          <tr>
+
+                            <th class="text-center">Coins</th>
+                            <th class="text-center">USD</th>
+                            <th class="text-center">AUD</th>
+
+                          </tr>
+                          <tr *ngFor="let crypto of objectKeys(cryptos)">
+
+                            <td class="text-center">{{ crypto }}</td>
+                            <td class="text-center">{{ cryptos[crypto].USD | currency: 'USD':'symbol-narrow'}}</td>
+                            <td class="text-center">{{cryptos[crypto].AUD | currency: 'AUD':'symbol-narrow'}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>-->
+<br/>
+                  <br/>
+
+
+                  <br/>
+                  <div class="card mb-3">
+                      <i class="fa fa-chain-broken"></i>
+                      <div class="table table-success">
+                        <table class="table table-warning" width="100%">
+                          <thead>
+                          <tr>
+                            <th>Transactions</th>
+                            <td style="color:red" *ngFor="let posts of (traninfo | slice: -1); let i = index"><strong>
+                              {{traninfo.length}} &nbsp;txns
+                            </strong></td>
+
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <th>Balance</th>
+                            <td><p style="color:red"><strong>{{resultinfo[0].balance*0.000000000000000001}} &nbsp;Ether</strong></p></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                  </div>
+
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+
+
         </li>
 
 
       </ul>
+
+
     </links>
+
   </mdb-navbar>
+
 </header>
 
 <div class ="container">
+
 <flash-messages></flash-messages>
 </div>
 

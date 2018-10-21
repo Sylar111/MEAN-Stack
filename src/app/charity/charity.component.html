@@ -14,7 +14,7 @@
 <!-- New Post Button -->
 
 <a [routerLink]="['/charitydashboard/']" *ngIf="permission === 'charity'">
-  <button type="button" class="btn btn-elegant waves-light" *ngIf="!newPost" mdbWavesEffect routerLink="charitydashboard">Charity Dashboard</button> </a>
+  <button type="button" class="btn btn-elegant waves-light" *ngIf="!newPost" mdbWavesEffect routerLink="charitydashboard">Check Charity Funds</button> </a>
 
 <a [routerLink]="['/new-charity/']" *ngIf="permission === 'charity'">
   <button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newCharityForm()">New Post</button> </a>
@@ -45,17 +45,21 @@
   <div class="form-group">
     <label for="body">Body</label>
     <div [ngClass]="{'has-success': form.controls.body.valid, 'has-error': form.controls.body.dirty && form.controls.body.errors}">
+
       <textarea name="body" rows="8" cols="80" id="body" placeholder="*Body" class="form-control" formControlName="body"></textarea>
       <ul class="help-block">
         <li *ngIf="form.controls.body.dirty && form.controls.body.errors?.required">This field is required.</li>
         <li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">Max length: 500, Min length: 5</li>
       </ul>
+
     </div>
   </div>
 
+
+
   <div class="form-group">
     <label for="bitCoin">bitCoin Wallet</label>
-    <div >
+    <div>
       <input type="text" name="bitCoin" class="form-control" id="bitCoin" placeholder="*bitCoin Wallet" autocomplete="off" formControlName="bitCoin" />
 
     </div>
@@ -80,6 +84,21 @@
 <!-- Panel Start -->
 <div *ngIf="!newPost">
   <!-- Panel Outer Layer -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <!-- Area Charts -->
+      <br/>
+      <br/>
+
+      <div class="row">
+        <div class="col-lg-7">
+
+
+
+
+
+
   <div class="panel panel-primary container-fluid  modal-content" *ngFor="let charity of charityPosts">
 
     <!-- Panel Title -->
@@ -91,7 +110,7 @@
     <div class="panel-body">
       <strong>Detail:     </strong> {{ charity.body }}
     </div>
-    <br />
+    <br/>
 
 
 
@@ -200,3 +219,119 @@
 </div>
 <!-- Panel End -->
 
+        <div class="col-lg-5">
+          <div class="col-lg-11">
+        <div class="row" style="margin-left: 20px">
+          <br/>
+          <br/>
+          <mdb-carousel [isControls]="true" [animation]="'slide'">
+            <!--First slide-->
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="assets/images/10.jpeg" alt="First slide">
+            </mdb-carousel-item>
+            <!--/First slide-->
+            <!--Second slide-->
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="assets/images/11.jpeg" alt="Second slide">
+            </mdb-carousel-item>
+            <!--/Second slide-->
+            <!--Third slide-->
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="assets/images/12.jpeg" alt="Third slide">
+            </mdb-carousel-item>
+            <!--/Third slide-->
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="assets/images/13.jpg" alt="Fourth slide">
+            </mdb-carousel-item>
+          </mdb-carousel>
+        </div>
+
+        <br/>
+          <br/>
+            <br/>
+            <br/>
+
+          <div class ="row" style="margin-right: 20px">
+            <mdb-carousel [isControls]="true" [animation]="'slide'">
+              <!--First slide-->
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="assets/images/14.png" alt="First slide">
+              </mdb-carousel-item>
+              <!--/First slide-->
+              <!--Second slide-->
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="assets/images/15.jpeg" alt="Second slide">
+              </mdb-carousel-item>
+              <!--/Second slide-->
+              <!--Third slide-->
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="assets/images/16.jpeg" alt="Third slide">
+              </mdb-carousel-item>
+              <!--/Third slide-->
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="assets/images/18.jpeg" alt="Fourth slide">
+              </mdb-carousel-item>
+            </mdb-carousel>
+        </div>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <div class ="row" style="margin-left: 20px">
+              <mdb-carousel [isControls]="true" [animation]="'slide'">
+                <!--First slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/19.jpeg" alt="First slide">
+                </mdb-carousel-item>
+                <!--/First slide-->
+                <!--Second slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/20.jpeg" alt="Second slide">
+                </mdb-carousel-item>
+                <!--/Second slide-->
+                <!--Third slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/21.jpeg" alt="Third slide">
+                </mdb-carousel-item>
+                <!--/Third slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/22.jpeg" alt="Fourth slide">
+                </mdb-carousel-item>
+              </mdb-carousel>
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <div class ="row" style="margin-right: 20px">
+              <mdb-carousel [isControls]="true" [animation]="'slide'">
+                <!--First slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/7.jpg" alt="First slide">
+                </mdb-carousel-item>
+                <!--/First slide-->
+                <!--Second slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/5.png" alt="Second slide">
+                </mdb-carousel-item>
+                <!--/Second slide-->
+                <!--Third slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/4.jpg" alt="Third slide">
+                </mdb-carousel-item>
+                <!--/Third slide-->
+                <mdb-carousel-item>
+                  <img class="d-block w-100" src="assets/images/6.png" alt="Fourth slide">
+                </mdb-carousel-item>
+              </mdb-carousel>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

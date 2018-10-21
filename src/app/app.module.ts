@@ -16,7 +16,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
 import { CharityService } from './services/charity.service';
 import { AdminComponent } from './admin/admin.component';
@@ -39,6 +39,13 @@ import { CharitydashboardComponent } from './charitydashboard/charitydashboard.c
 import { NgLoadingSpinnerModule, NgLoadingSpinnerInterceptor } from 'ng-loading-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserguideComponent } from './userguide/userguide.component';
+import { MarkdownModule} from 'ngx-markdown';
+import { LMarkdownEditorModule} from 'ngx-markdown-editor';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { SearchingComponent } from './searching/searching.component';
+import {GetbalanceService} from './services/getbalance.service';
+import {GettransactionService} from './services/gettransaction.service';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +65,10 @@ import { UserguideComponent } from './userguide/userguide.component';
     PublicProfileComponent,
     ContactComponent,
     CharitydashboardComponent,
-    UserguideComponent
+    UserguideComponent,
+    FileSelectDirective,
+    SearchingComponent
+
   ],
   imports: [
     BrowserModule,
@@ -69,13 +79,16 @@ import { UserguideComponent } from './userguide/userguide.component';
     AppRoutingModule,
     FlashMessagesModule.forRoot(),
     HttpClientModule,
-    NgLoadingSpinnerModule
+    NgLoadingSpinnerModule,
+    MarkdownModule.forRoot({loader: HttpClient}),
+    LMarkdownEditorModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ {provide: HTTP_INTERCEPTORS, useClass: NgLoadingSpinnerInterceptor, multi: true },
     InternaltransService, EthcontractService, MessageService,
     ValidateService, AppService, TransactionService, AuthService,
-    AdminService, AuthGuard, AdminGuard, PermissionGuard, CharityService, DataService],
+    AdminService, AuthGuard, AdminGuard, PermissionGuard, CharityService, DataService,
+    GetbalanceService, GettransactionService],
 
   bootstrap: [AppComponent, CharityComponent]
 })

@@ -7,7 +7,7 @@ const config = require('../config/database');
 const Admin = require('../models/admin');
 
 // Register
-router.post('/register', (req, res, next) => {
+router.post('/', (req, res, next) => {
   res.send('Register');
   let newAdmin = new Admin({
     username: req.body.username,

@@ -60,7 +60,7 @@ module.exports = (router) => {
   });
 
   /* ===============================================================
-    GET ALL CHARITIES
+    GET ALL CHARITIY
  =============================================================== */
   router.get('/allCharity', (req, res) =>{
     // Search database for all charity
@@ -80,7 +80,8 @@ module.exports = (router) => {
 
 
   /* ===============================================================
-      GET SINGLE CHARITY
+      GET SINGLE CHARIT
+
    =============================================================== */
   router.get('/singleCharity/:id', passport.authenticate('jwt', {session:false}), (req, res) =>{
     // Check if id is present in parameters

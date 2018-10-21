@@ -4,6 +4,7 @@ import * as Chart from 'chart.js';
 import {AppService} from '../services/app.service';
 import {TransactionService} from '../services/transaction.service';
 import {InternaltransService} from '../services/internaltrans.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-charitydashboard',
@@ -11,6 +12,7 @@ import {InternaltransService} from '../services/internaltrans.service';
   styleUrls: ['./charitydashboard.component.css']
 })
 export class CharitydashboardComponent implements OnInit {
+  user: Object;
   objectKeys = Object.keys;
   cryptos: any;
   number: 1;
@@ -22,14 +24,16 @@ export class CharitydashboardComponent implements OnInit {
   public intrans: any;
   public show: boolean = false;
   public buttonName: any;
-  public etherwallet: string = '0xb03ed6bb2d055a3290f974ea14268720e7d12bd1';
+  public etherwallet: string;
   public maxvalue: number;
+  public user.name: string;
 
 
   constructor(private data: DataService,
               private appService: AppService,
               private transactionService: TransactionService,
-              private internaltransService: InternaltransService
+              private internaltransService: InternaltransService,
+              private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -38,20 +42,17 @@ export class CharitydashboardComponent implements OnInit {
         this.cryptos = res;
         console.log(res);
       });
-    this.transactionService.getTrans(this.etherwallet)
-      .subscribe(temp => {
-        this.traninfo = temp.result;
-        console.log(temp.result);
-      });
 
-    this.internaltransService.getInTrans(this.etherwallet)
-      .subscribe(temp => {
-        this.intrans = temp.result;
-        console.log(temp.result);
+    this.authService.getProfile().subscribe(profile => {
+        this.user = profile.user;
+      },
+      err => {
+        console.log(err);
+        return false;
       });
   }
   sendmaxvalue(): void {
-    this.appService.getBalances(this.etherwallet)
+    this.appService.getBalances(this.user.name)
       .subscribe(temp => {
         const max1 = temp.result[0].balance * 0.000000000000000001;
         this.resultinfo = temp.result;
@@ -64,7 +65,7 @@ export class CharitydashboardComponent implements OnInit {
               datasets: [
                 { label: 'charity wallet',
                   data: [0, max1, this.maxvalue],
-                  borderColor: '#3cba9f'
+                  borderColor: 'red'
                 }
               ]
             },
@@ -86,7 +87,17 @@ export class CharitydashboardComponent implements OnInit {
 
       });
 
+    this.transactionService.getTrans(this.user.name)
+      .subscribe(temp => {
+        this.traninfo = temp.result;
+        console.log(temp.result);
+      });
 
+    this.internaltransService.getInTrans(this.user.name)
+      .subscribe(temp => {
+        this.intrans = temp.result;
+        console.log(temp.result);
+      });
 
 
   }

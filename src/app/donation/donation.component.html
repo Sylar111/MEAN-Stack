@@ -36,12 +36,12 @@
 <br>
 
 
-<a *ngIf="balance==='0 ETH'; else templateName">
-<div class="options text-center" style="color:black" >
-  <a href="https://metamask.io/" target="_blank"><strong>Don't have an address wallet ?</strong></a></div></a>
+<a *ngIf="balance=='0'; else templateName">
+<div class="options text-center" >
+  <a href="https://metamask.io/" target="_blank"><strong style="color:red">Don't have a wallet ? Or Not enough Ether ?</strong></a></div></a>
 
-<ng-template #templateName style="color:red; margin-left: 500px">
-  <strong style="color:#4CAF50; margin-left: 500px">Thanks For Your Donation With Us</strong>
+<ng-template #templateName>
+  <strong style="color:#4CAF50; margin-left: 420px">Congratulation! Your wallet is ready to donate !!!</strong>
 </ng-template>
 
 

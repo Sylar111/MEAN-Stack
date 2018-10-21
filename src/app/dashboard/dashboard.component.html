@@ -11,35 +11,77 @@
 <br>
 <br>
 <br>
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<body class="fixed-nav sticky-footer bg-light" id="page-top">
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" style="color:white" >USER DASHBOARD</a>
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+  <a class="navbar-brand" style="color:cornflowerblue" ><strong><h2>USER DASHBOARD</h2></strong></a>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
 
 
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="fa fa-fw fa-sign-out"></i>Home</a>
+          <i class="fa fa-fw fa-sign-out"></i><strong> Home </strong></a>
       </li>
     </ul>
   </div>
 </nav>
 
 <!-- Body -->
-<div class ="topnav">
-<input id="etherwallet" [(ngModel)]="etherwallet"/>
+
+<div *ngIf="user">
+  <br/>
+  <br/>
+  <br/>
+  <strong  style="color:black; margin-left: 100px;"><i class="fa fa-archive"></i> Your Address: </strong>
+  <div class= "row"><h4 class="address" style="margin-left: 200px; color: black" > {{user.name}}&ensp; </h4><i class="fa fa-copy"></i></div>
+
+
+
+<!--<div class ="topnav">
+<input id="etherwallet"  [(ngModel)]="user.name"/>
 <button (click)="sendValues()" aria-hidden="true">Search</button>
+</div> -->
+
+</div>
+<br/>
+<br/>
+
+<div class="col-md-6" style="margin-bottom: -3px; margin-left:100px">
+  <table class="table">
+    <thead>
+    <tr>
+      <th colspan="2">
+        <button class="inner" (click)="sendValues()" id="bt"><strong>Overview</strong>
+          </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody><tr>
+      <td><strong>
+        Balance:</strong>
+      </td>
+
+      <td><p style="color:red"><strong>{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;&nbsp;Ether </strong></p></td>
+
+    </tr>
+    <tr>
+      <td><strong>
+        Transactions:</strong>
+      </td>
+      <td>
+
+        <div style="color:red" *ngFor="let posts of (traninfo | slice: -1); let i = index"><strong>
+          {{traninfo.length}}&ensp; txns
+        </strong></div>
+
+      </td>
+    </tr>
+    </tbody></table>
 </div>
 
-<br>
 
-    <button class="inner" (click)="toggle()" id="bt">
-      {{buttonName}} </button>
     <div *ngIf="show">
 
 
@@ -47,7 +89,8 @@
         <div class="container-fluid">
 
           <!-- Area Charts -->
-
+          <br/>
+          <br/>
 
           <div class="row">
             <div class="col-lg-12">
@@ -78,56 +121,52 @@
                 </div>
               </div>-->
 
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i>&nbsp;Account Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" width="100%" cellspacing="0">
-              <thead>
-              <tr>
-                <th>Address</th>
-                <th>Balance</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td><p style="color:red">{{resultinfo[0].account}}</p></td>
-                <td><p style="color:red">{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;Ether</p></td>
-              </tr>
-              </tbody>
-            </table>
+              <br/>
+              <br/>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+<br/>
+<br/>
+              <button class="inner1" (click)="toggle1()"  id="bt1">
+                {{buttonName1}} </button>
+              <div *ngIf="show1">
+                <br/>
+
 
 
               <div class="visible" >
                 <h3><strong> Table Transaction </strong></h3>
-                <table class="table table-responsive table-hover">
-                  <thead class="mdb-color darken-3">
+                <table class="table table-responsive table-hover col-lg-12" style="max-width: 100%">
+                  <thead class="mdb-color darken-6">
                   <tr class="text-white">
+
                     <td align="center">BlockNumber</td>
                     <td align="center">Date</td>
                     <td align="center">From</td>
                     <td align="center">To</td>
                     <td align="center">Value</td>
-                    <td align="center">Fee</td>
+                    <td align="center">TxFee</td>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr *ngFor="let posts of traninfo">
-                    <td align="center">{{posts.blockNumber}}</td>
+                  <tr *ngFor="let posts of traninfo;index as i">
+
+                    <td align="center" style="color:cornflowerblue">{{posts.blockNumber}}</td>
                     <td align="center">{{posts.timeStamp*1000 | date:'mediumDate'}} </td>
                     <td align="center">{{posts.from}}</td>
-                    <td align="center">{{posts.to}}</td>
+                    <td align="center" style="color:cornflowerblue">{{posts.to}}</td>
                     <td align="center">{{posts.value*0.000000000000000001}}</td>
-                    <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001}}</td>
+                    <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001 | number : '1.2-9'}}</td>
                   </tr>
                   </tbody>
                 </table>
 
               </div>
+
 
               <br>
               <br>
@@ -166,17 +205,14 @@
             </div>
 
 
-          </div>
-        </div>
-
-      </div>
 
 
 
 
 
 
-    </div>
+
+
 </body>
 
 <!-- Bootstrap core JavaScript-->
