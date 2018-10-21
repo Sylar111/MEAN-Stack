@@ -13,7 +13,7 @@ const swal: SweetAlert = _swal as any;
 export class ContactComponent {
 
   constructor(public _MessageService: MessageService) { }
-
+  // message function
   contactForm(form) {
     this._MessageService.sendMessage(form).subscribe(() => {
       swal("Your message has been sent to us", "Thanks for giving question  :)", 'success');

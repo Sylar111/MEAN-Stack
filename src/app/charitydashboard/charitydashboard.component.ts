@@ -37,12 +37,13 @@ export class CharitydashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Get price crypto table
     this.data.getPrice()
       .subscribe(res => {
         this.cryptos = res;
         console.log(res);
       });
-
+    // Get User Address
     this.authService.getProfile().subscribe(profile => {
         this.user = profile.user;
       },
@@ -51,6 +52,7 @@ export class CharitydashboardComponent implements OnInit {
         return false;
       });
   }
+  // Get Account Balance and Line Chart
   sendmaxvalue(): void {
     this.appService.getBalances(this.user.name)
       .subscribe(temp => {
@@ -86,13 +88,13 @@ export class CharitydashboardComponent implements OnInit {
 
 
       });
-
+      // Get Transaction
     this.transactionService.getTrans(this.user.name)
       .subscribe(temp => {
         this.traninfo = temp.result;
         console.log(temp.result);
       });
-
+      // Get internal transaction
     this.internaltransService.getInTrans(this.user.name)
       .subscribe(temp => {
         this.intrans = temp.result;

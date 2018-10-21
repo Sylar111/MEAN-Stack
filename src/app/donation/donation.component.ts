@@ -17,7 +17,7 @@ export class DonationComponent {
   constructor( private ethcontractService: EthcontractService ){
     this.initAndDisplayAccount();
   }
-
+  // Get Account Info
   initAndDisplayAccount = () => {
     const that = this;
     this.ethcontractService.getAccountInfo().then(function(acctInfo: any) {
@@ -29,7 +29,7 @@ export class DonationComponent {
     });
 
   }
-
+  // Transfer Action
   transferEther(event){
     const that = this;
     console.log(this.transferTo);

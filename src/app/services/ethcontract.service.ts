@@ -15,6 +15,7 @@ export class EthcontractService {
 
 
   constructor() {
+    //  MetaMask Service
     if (typeof window.web3 !== 'undefined') {
       this.web3Provider = window.web3.currentProvider;
     } else {
@@ -23,7 +24,7 @@ export class EthcontractService {
 
     window.web3 = new Web3(this.web3Provider);
   }
-
+  // Get Account Info Service
   getAccountInfo() {
     return new Promise((resolve, reject) => {
       window.web3.eth.getCoinbase(function(err, account) {
@@ -40,7 +41,7 @@ export class EthcontractService {
       });
     });
   }
-
+// Transfer Ether Service
   transferEther(
     _transferFrom,
     _transferTo,
