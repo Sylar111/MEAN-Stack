@@ -1,3 +1,8 @@
+To run the app, please input these command lines:
+1. npm install
+2. nodemon or node app.js (if you have not install nodemon)
+3. ng serve.
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
