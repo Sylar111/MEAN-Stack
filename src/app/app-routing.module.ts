@@ -20,6 +20,7 @@ import { ContactComponent} from './contact/contact.component';
 import {CharitydashboardComponent} from './charitydashboard/charitydashboard.component';
 import {UserguideComponent} from './userguide/userguide.component';
 import {SearchingComponent} from './searching/searching.component';
+import {EditPermissionComponent} from './admin-dashboard/edit-permission/edit-permission.component';
 
 const routes: Routes = [
   {
@@ -87,7 +88,12 @@ const routes: Routes = [
   {
     path: 'searching',
     component: SearchingComponent
-  }
+  },
+  {
+    path: 'edit-permission/',
+    component: EditPermissionComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 @NgModule({
   exports: [ RouterModule ],

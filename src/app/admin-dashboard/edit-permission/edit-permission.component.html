@@ -1,0 +1,30 @@
+<h1 class="page-header">Edit Permission</h1>
+
+<!-- Custom Success/Erro Message -->
+<div class="row show-hide-message" *ngIf="message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<!-- Edit charity Form -->
+<form (submit)="updatePemission()" *ngIf="!loading">
+  <!-- Title Field -->
+  <div class="form-group">
+    <label for="permission">Permission</label>
+    <!-- Title Input -->
+    <input [disabled]="processing" type="text" id="permission" name="permission" placeholder="*Permission" class="form-control" [(ngModel)]="permission" />
+  </div>
+
+
+
+  <!-- Delete Button -->
+  <!--  <a [routerLink]="['/delete-charity/', charity._id]" *ngIf="username === charity.createdBy"><button  [disabled]="processing"  type="button" name="button" class="btn btn-danger">Delete</button></a>
+   <!-- Go Back Button -->
+  <button [disabled]="processing" type="button" name="button" class="btn btn-success" (click)="goBack()">Go Back</button>
+  <!-- Save Changes Button -->
+  <button [disabled]="processing"  type="submit" name="save" class="btn btn-info">Save Changes</button>
+
+</form>
+
+

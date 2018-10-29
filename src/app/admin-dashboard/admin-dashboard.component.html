@@ -27,7 +27,9 @@
           <td class="text-center">{{ user.username }}</td>
           <td class="text-center">{{ user.email }}</td>
           <td class="text-center">{{ user.permission }}
-            <a ><button type="button" name="button" class="btn btn-sm btn-info" (click)="newCharityForm()">Edit</button></a>
+            <!-- Edit Button -->
+            <a [routerLink]="['/edit-permission/']">
+              <button type="button" class="btn btn-elegant waves-light"  mdbWavesEffect routerLink="edit-permission">Edit</button> </a>
           </td>
         </tr>
       </table>
@@ -35,3 +37,5 @@
   </div>
 </div>
 <!-- Editable table -->
+
+

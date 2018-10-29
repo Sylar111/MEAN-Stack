@@ -98,7 +98,7 @@
           <br>
 
           <div class ="topmax">
-            <p style="color: rgb(255, 107, 74)">Amount of expected Ether for charity :</p>
+            <p style="color: black">Amount of expected Ether for charity :</p>
             <input id="maxvalue" [(ngModel)]="maxvalue"/>
             <button (click)="sendmaxvalue()"  aria-hidden="true"> Set Max</button>
           </div>
@@ -155,10 +155,10 @@
               </thead>
               <tbody>
               <tr *ngFor="let posts of traninfo">
-                <td align="center" style="color:cornflowerblue">{{posts.blockNumber}}</td>
+                <td align="center" style="color:rgb(255, 107, 74)">{{posts.blockNumber}}</td>
                 <td align="center">{{posts.timeStamp*1000 | date:'mediumDate'}} </td>
                 <td align="center">{{posts.from}}</td>
-                <td align="center" style="color:cornflowerblue">{{posts.to}}</td>
+                <td align="center" style="color:rgb(255, 107, 74)">{{posts.to}}</td>
                 <td align="center">{{posts.value*0.000000000000000001}}</td>
                 <td align="center">{{posts.gasPrice*posts.gasUsed*0.000000000000000001 | number : '1.2-9'}}</td>
               </tr>

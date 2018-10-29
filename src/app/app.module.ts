@@ -45,6 +45,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { SearchingComponent } from './searching/searching.component';
 import {GetbalanceService} from './services/getbalance.service';
 import {GettransactionService} from './services/gettransaction.service';
+import { EditPermissionComponent } from './admin-dashboard/edit-permission/edit-permission.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import {GettransactionService} from './services/gettransaction.service';
     CharitydashboardComponent,
     UserguideComponent,
     FileSelectDirective,
-    SearchingComponent
+    SearchingComponent,
+    EditPermissionComponent
 
   ],
   imports: [

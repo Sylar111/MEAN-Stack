@@ -14,14 +14,14 @@
 
 <body class="fixed-nav sticky-footer bg-light" id="page-top">
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-  <a class="navbar-brand" style="color:cornflowerblue" ><strong><h2>USER DASHBOARD</h2></strong></a>
+<nav class="navbar navbar-expand-lg  fixed-top" id="mainNav">
+  <a class="navbar-brand" style="color:white" ><strong><h2>USER DASHBOARD</h2></strong></a>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
 
 
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a routerLink="" style="color:white" >
           <i class="fa fa-fw fa-sign-out"></i><strong> Home </strong></a>
       </li>
     </ul>
@@ -58,12 +58,21 @@
       </th>
     </tr>
     </thead>
-    <tbody><tr>
+    <tbody>
+    <tr>
       <td><strong>
         Balance:</strong>
       </td>
 
-      <td><p style="color:red"><strong>{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;&nbsp;Ether </strong></p></td>
+      <td><div style="color:red"><strong>{{resultinfo[0].balance*0.000000000000000001}}&nbsp;&nbsp;&nbsp;Ether </strong></div></td>
+
+    </tr>
+    <tr>
+      <td><strong>
+        Price:</strong>
+      </td>
+
+      <td><div style="color:red"><strong>{{resultinfo[0].balance*0.000000000000000001*cryptos.ETH.AUD | currency: 'AUD':'symbol-narrow'}}&nbsp;&nbsp;AUD</strong></div></td>
 
     </tr>
     <tr>
@@ -78,6 +87,7 @@
 
       </td>
     </tr>
+
     </tbody></table>
 </div>
 

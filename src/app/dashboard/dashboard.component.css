@@ -1,6 +1,13 @@
 .nav-item
 {
   margin: 0 auto;
+
+
+}
+
+#mainNav
+{
+  background-color: cornflowerblue;
 }
 
 .visible {
