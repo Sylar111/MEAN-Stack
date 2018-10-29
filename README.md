@@ -1,6 +1,6 @@
 To run the app, please input these command lines:
 1. npm install
-2. nodemon or node app.js (if you have not install nodemon)
+2. nodemon or node app.js (if you have not installed nodemon)
 3. ng serve.
 
 # MyApp
