@@ -22,13 +22,13 @@ export class CharityService {
 
   newCharity(charity) {
     this.createAuthenticationHeaders();
-    return this.http.post('http://localhost:3000/Charitys/newCharity', charity, this.options)
+    return this.http.post('Charitys/newCharity', charity, this.options)
       .map(res => res.json());
   }
 
   getAllCharity() {
     this.createAuthenticationHeaders();
-    return this.http.get('http://localhost:3000/Charitys/allCharity', this.options)
+    return this.http.get('Charitys/allCharity', this.options)
       .map(res => res.json());
   }
 
