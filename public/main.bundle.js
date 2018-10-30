@@ -878,11 +878,11 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__userguide_userguide_component__ = __webpack_require__("./src/app/userguide/userguide.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ngx_markdown__ = __webpack_require__("./node_modules/ngx-markdown/fesm5/ngx-markdown.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_ngx_markdown_editor__ = __webpack_require__("./node_modules/ngx-markdown-editor/esm5/ngx-markdown-editor.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__searching_searching_component__ = __webpack_require__("./src/app/searching/searching.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__services_getbalance_service__ = __webpack_require__("./src/app/services/getbalance.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__services_gettransaction_service__ = __webpack_require__("./src/app/services/gettransaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__searching_searching_component__ = __webpack_require__("./src/app/searching/searching.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__services_getbalance_service__ = __webpack_require__("./src/app/services/getbalance.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__services_gettransaction_service__ = __webpack_require__("./src/app/services/gettransaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__admin_dashboard_edit_permission_edit_permission_component__ = __webpack_require__("./src/app/admin-dashboard/edit-permission/edit-permission.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -961,13 +961,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_32__contact_contact_component__["a" /* ContactComponent */],
                 __WEBPACK_IMPORTED_MODULE_36__charitydashboard_charitydashboard_component__["a" /* CharitydashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_38__userguide_userguide_component__["a" /* UserguideComponent */],
-                __WEBPACK_IMPORTED_MODULE_41_ng2_file_upload__["FileSelectDirective"],
-                __WEBPACK_IMPORTED_MODULE_42__searching_searching_component__["a" /* SearchingComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__searching_searching_component__["a" /* SearchingComponent */],
                 __WEBPACK_IMPORTED_MODULE_45__admin_dashboard_edit_permission_edit_permission_component__["a" /* EditPermissionComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_15__angular_forms__["b" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_44_ng2_file_upload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_15__angular_forms__["e" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_16__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_2_angular_bootstrap_md__["a" /* MDBBootstrapModule */].forRoot(),
@@ -983,7 +983,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_35__services_internaltrans_service__["a" /* InternaltransService */], __WEBPACK_IMPORTED_MODULE_34__services_ethcontract_service__["a" /* EthcontractService */], __WEBPACK_IMPORTED_MODULE_33__services_message_service__["a" /* MessageService */],
                 __WEBPACK_IMPORTED_MODULE_12__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_30__services_app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_31__services_transaction_service__["a" /* TransactionService */], __WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */],
                 __WEBPACK_IMPORTED_MODULE_21__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_18__guards_auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_23__guards_admin_guard__["a" /* AdminGuard */], __WEBPACK_IMPORTED_MODULE_26__guards_permission_guard__["a" /* PermissionGuard */], __WEBPACK_IMPORTED_MODULE_19__services_charity_service__["a" /* CharityService */], __WEBPACK_IMPORTED_MODULE_24__services_data_service__["a" /* DataService */],
-                __WEBPACK_IMPORTED_MODULE_43__services_getbalance_service__["a" /* GetbalanceService */], __WEBPACK_IMPORTED_MODULE_44__services_gettransaction_service__["a" /* GettransactionService */]],
+                __WEBPACK_IMPORTED_MODULE_42__services_getbalance_service__["a" /* GetbalanceService */], __WEBPACK_IMPORTED_MODULE_43__services_gettransaction_service__["a" /* GettransactionService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_5__charity_charity_component__["a" /* CharityComponent */]]
         })
     ], AppModule);

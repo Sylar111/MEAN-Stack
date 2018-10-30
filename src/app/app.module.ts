@@ -41,10 +41,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserguideComponent } from './userguide/userguide.component';
 import { MarkdownModule} from 'ngx-markdown';
 import { LMarkdownEditorModule} from 'ngx-markdown-editor';
-import { FileSelectDirective } from 'ng2-file-upload';
 import { SearchingComponent } from './searching/searching.component';
 import {GetbalanceService} from './services/getbalance.service';
 import {GettransactionService} from './services/gettransaction.service';
+import { FileUploadModule} from 'ng2-file-upload';
 import { EditPermissionComponent } from './admin-dashboard/edit-permission/edit-permission.component';
 
 
@@ -67,7 +67,6 @@ import { EditPermissionComponent } from './admin-dashboard/edit-permission/edit-
     ContactComponent,
     CharitydashboardComponent,
     UserguideComponent,
-    FileSelectDirective,
     SearchingComponent,
     EditPermissionComponent
 
@@ -75,6 +74,7 @@ import { EditPermissionComponent } from './admin-dashboard/edit-permission/edit-
   imports: [
     BrowserModule,
     FormsModule,
+    FileUploadModule,
     ReactiveFormsModule,
     HttpModule,
     MDBBootstrapModule.forRoot(),
