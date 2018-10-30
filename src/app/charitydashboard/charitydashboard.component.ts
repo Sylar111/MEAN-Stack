@@ -26,7 +26,8 @@ export class CharitydashboardComponent implements OnInit {
   public buttonName: any;
   public etherwallet: string;
   public maxvalue: number;
-  public user.name: string;
+  //public user.name: string;
+
 
 
   constructor(private data: DataService,
@@ -43,6 +44,7 @@ export class CharitydashboardComponent implements OnInit {
         this.cryptos = res;
         console.log(res);
       });
+
     // Get User Address
     this.authService.getProfile().subscribe(profile => {
         this.user = profile.user;
@@ -54,7 +56,7 @@ export class CharitydashboardComponent implements OnInit {
   }
   // Get Account Balance and Line Chart
   sendmaxvalue(): void {
-    this.appService.getBalances(this.user.name)
+    this.appService.getBalances(this.user['name'])
       .subscribe(temp => {
         const max1 = temp.result[0].balance * 0.000000000000000001;
         this.resultinfo = temp.result;
@@ -89,13 +91,13 @@ export class CharitydashboardComponent implements OnInit {
 
       });
       // Get Transaction
-    this.transactionService.getTrans(this.user.name)
+    this.transactionService.getTrans(this.user['name'])
       .subscribe(temp => {
         this.traninfo = temp.result;
         console.log(temp.result);
       });
       // Get internal transaction
-    this.internaltransService.getInTrans(this.user.name)
+    this.internaltransService.getInTrans(this.user['name'])
       .subscribe(temp => {
         this.intrans = temp.result;
         console.log(temp.result);

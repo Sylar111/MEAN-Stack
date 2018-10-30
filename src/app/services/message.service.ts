@@ -7,7 +7,7 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
 
   sendMessage(body) {
-    return this._http.post('http://localhost:3000/messages', body);
+    return this._http.post('messages', body);
   }
 
 }

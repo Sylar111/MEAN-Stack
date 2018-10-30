@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   public buttonName: any;
   public buttonName1: any;
   public etherwallet: string;
-  public user.name: string;
+  //public user.name: string;
 
 
 
@@ -60,20 +60,20 @@ export class DashboardComponent implements OnInit {
   }
     sendValues(): void {
 
-    this.appService.getBalances(this.user.name)
+    this.appService.getBalances(this.user['name'])
       .subscribe(temp => {
         this.resultinfo = temp.result;
         console.log(temp.result);
         console.log(this.etherwallet);
       });
 
-    this.transactionService.getTrans(this.user.name)
+    this.transactionService.getTrans(this.user['name'])
       .subscribe(temp => {
         this.traninfo = temp.result;
         console.log(temp.result);
       });
 
-    this.internaltransService.getInTrans(this.user.name)
+    this.internaltransService.getInTrans(this.user['name'])
       .subscribe(temp => {
         this.intrans = temp.result;
         console.log(temp.result);

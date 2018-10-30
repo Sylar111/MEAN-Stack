@@ -1,6 +1,6 @@
 
 
 module.exports = {
-  database: 'mongodb://localhost:27017/local',
+  database: 'mongodb://dbadmin:123456vy@ds119969.mlab.com:19969/project123',
   secret: 'yoursecret'
 };

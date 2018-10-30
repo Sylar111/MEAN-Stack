@@ -8,10 +8,13 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~1.7.4",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -48,6 +51,7 @@
     "nodemailer": "^4.6.8",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
     "rxjs": "^5.5.6",
     "rxjs-compat": "^6.3.3",
     "stream": "0.0.2",
@@ -57,8 +61,6 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.4",
-    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.11",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
@@ -78,5 +80,9 @@
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.",
   "main": "app.js",
-  "author": "Thanh Duy - Vy Nguyen"
+  "author": "Thanh Duy - Vy Nguyen",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
+  }
 }

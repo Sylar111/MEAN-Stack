@@ -37,7 +37,9 @@ const admins = require('./routes/admins'); //add
 const charitys = require('./routes/charitys')(router);
 const configMessage = require('./routes/configMessage');
 // Port Number
-const port = 3000;
+//const port = 3000;
+
+const port = process.env.port || 8080;
 
 
 
