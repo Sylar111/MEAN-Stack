@@ -31,7 +31,7 @@ export class AppComponent  {
   public etherwallet: string;
 
   title = 'app';
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
               private router: Router,
               private flashMessage: FlashMessagesService,
               private getbalanceService: GetbalanceService,
