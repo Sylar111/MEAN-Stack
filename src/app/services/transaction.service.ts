@@ -14,7 +14,7 @@ export class TransactionService {
 
   // Get Transaction Service
   getTrans(etherwallet: string): any {
-    const urlPrefix = 'http://api-ropsten.etherscan.io/api?module=account&action=txlist&address=';
+    const urlPrefix = 'https://api-ropsten.etherscan.io/api?module=account&action=txlist&address=';
     const urlSuffix = '&startblock=0&endblock=99999999&sort=asc&apikey=YourApiKeyToken';
     return this.http.get(urlPrefix + etherwallet + urlSuffix);
 
