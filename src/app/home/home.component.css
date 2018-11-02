@@ -10,18 +10,18 @@ h1{
 h2{
   font-size: 50px;
 }
-.team-section
+.full
 {
-background-image: url("../../assets/images/aaaa.jpg");
+  background: url("../../assets/images/aaaa.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: 8px;
 }
-.member {
 
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
-
-}
 body
 {
   background-color: whitesmoke;
 }
+
