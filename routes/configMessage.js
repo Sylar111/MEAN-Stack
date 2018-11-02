@@ -4,14 +4,14 @@ module.exports = (messages) => {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'sylar.tdh@gmail.com', // Your sending email
-      pass: '123456vy' // Your sending email password
+      user: 'youremail@gmail.com', // Your sending email
+      pass: '123456' // Your sending email password
     }
   });
 
   const mailOptions = {
     from: `"${messages.name} ♦ " <${messages.email}>`,
-    to: 'sylar.tdh@gmail.com', // Your destination email
+    to: 'youremail@gmail.com', // Your destination email
     subject: messages.text,
     html: `
     <strong>UserName: </strong> ${messages.name} <br/>
